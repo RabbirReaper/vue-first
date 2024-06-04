@@ -1,30 +1,34 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+  import { computed, ref, watch } from 'vue'
+  
+  const disabled = ref(false)
+  const sendMsg = () =>{
+    
+  }
+
+  const msg =ref('undefine')
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <input type="text" v-model="msg">
+  <button @click="sendMsg" class="shake">傳送資料</button>
+  <br/>
+  {{msg}}
+
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+<style>
+
+  .shake {
+    border: 2px red solid;
+    animation: shake 5s infinite;
+  }
+  @keyframes shake {
+    0% {border-color: red;} 
+    50% {border-color: blue;} 
+    100% {border-color: red;} 
+  }
+  
+  
+  
 </style>
