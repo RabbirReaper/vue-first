@@ -1,9 +1,18 @@
 <script setup>
   import { computed, ref, watch } from 'vue'
-  
+  import axios from 'axios'
   const disabled = ref(false)
-  const sendMsg = () =>{
-    
+
+  const sendMsg = async() =>{
+    alert(msg.value)
+    const res = await axios({
+      method : 'post',
+      url : 'http://localhost:3000/sendMsgToChannel',
+      data:{
+        msg:msg.value
+      }
+    })
+    alert(res.data)
   }
 
   const msg =ref('undefine')
